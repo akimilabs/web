@@ -1,0 +1,3 @@
+Akimilabs blue - rgb(55,87,150) #375796
+
+Default boostrap orange - rgb(240,95,64)
