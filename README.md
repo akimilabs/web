@@ -1,6 +1,6 @@
 # Akimilabs Public Website
 
-This is a very basic sample application repository that can be built and deployed
+This is a repository that can be built and deployed
 on [OpenShift](https://www.openshift.com) using the [Nginx HTTP server and a reverse proxy builder image](https://github.com/sclorg/nginx-container).
 
 The application serves a single static html page via nginx.
