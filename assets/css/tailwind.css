@@ -1,0 +1,63 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Add these global styles */
+:root, 
+body {
+    background-color: rgb(17, 24, 39); /* bg-gray-900 */
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scroll from gradients */
+    position: relative; /* For gradient positioning */
+}
+
+/* Animation keyframes */
+@keyframes gradient-float {
+    0% {
+        transform: translate(0) rotate(0) scale(1);
+    }
+    33% {
+        transform: translate(10%, 10%) rotate(30deg) scale(1.4);
+    }
+    66% {
+        transform: translate(-10%, 10%) rotate(-30deg) scale(0.6);
+    }
+    100% {
+        transform: translate(0) rotate(0) scale(1);
+    }
+}
+
+/* Gradient styles */
+.gradient-element {
+  background: linear-gradient(to right top, #ff80b5, #9089fc);
+  opacity: 0.25;  /* Slightly increased from 0.2, but not as high as 0.3 */
+  clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%);
+  animation: gradient-float 10s ease-in-out infinite;
+}
+
+.gradient-top {
+    @apply fixed inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80;
+}
+
+.gradient-top .gradient-element {
+    @apply relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:w-[72.1875rem];
+    animation-delay: -5s;  /* Offset animation for variety */
+}
+
+.gradient-middle {
+    @apply fixed left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 blur-3xl;
+}
+
+.gradient-middle .gradient-element {
+    @apply aspect-[1155/678] w-[36.125rem];
+    animation-delay: -10s;  /* Different offset for middle */
+}
+
+.gradient-bottom {
+    @apply fixed inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)];
+}
+
+.gradient-bottom .gradient-element {
+    @apply relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem];
+    animation-delay: -15s;  /* Different offset for bottom */
+}
