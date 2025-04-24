@@ -219,23 +219,26 @@
         font-size: 1.1rem;
         border-radius: 8px;
         box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
-        outline: none;
+        outline: none !important;
+        -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
       }
       .btn-primary:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
       }
-      .btn-primary:focus {
-        border: none;
-        outline: none;
-        outline-offset: 0px;
-        box-shadow: none;
+      .btn-primary:focus,
+      .btn-primary:focus-visible,
+      .btn-primary:focus-within {
+        border: none !important;
+        outline: none !important;
+        outline-offset: 0 !important;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3) !important;
       }
       .btn-primary:active {
-        border: none;
-        box-shadow: none;
-        outline: 0px;
-        outline-offset: 0px;
+        border: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+        outline-offset: 0 !important;
       }
       .collaboration-list {
         text-align: left;
