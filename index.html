@@ -98,6 +98,12 @@
         max-width: 800px;
         margin: 0 auto;
       }
+      .section-content p {
+        font-size: 0.95rem;
+        color: var(--akimilabs-text);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
       .section-title {
         font-size: 2.25rem;
         font-weight: 700;
@@ -105,6 +111,13 @@
         color: var(--akimilabs-text);
         position: relative;
         display: inline-block;
+        background: linear-gradient(
+          135deg,
+          var(--akimilabs-text) 0%,
+          #9ca3af 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
       .section-title::after {
         content: "";
@@ -187,6 +200,8 @@
         border-radius: 16px;
         margin: 2rem 0;
         border: 1px solid rgba(55, 65, 81, 0.3);
+        max-width: 800px;
+        margin: 0 auto;
       }
       .contact p {
         margin-bottom: 1rem;
@@ -213,14 +228,14 @@
         ) !important;
         border: none !important;
         transition: all 0.3s ease;
-        font-family: "Inter", sans-serif;
+        font-family: inherit;
         text-transform: none !important;
         padding: 0.75rem 2rem;
         font-size: 1.1rem;
         border-radius: 8px;
         box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
         outline: none !important;
-        -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+        -webkit-tap-highlight-color: transparent;
       }
       .btn-primary:hover {
         transform: translateY(-2px);
@@ -410,7 +425,7 @@
         font-size: 0.875rem;
         font-weight: 500;
         background-color: rgba(255, 255, 255, 0.1);
-        color: #e0e7ff;
+        color: var(--akimilabs-text);
         backdrop-filter: blur(4px);
         border: 1px solid rgba(99, 102, 241, 0.3);
       }
@@ -494,11 +509,15 @@
             <h3>David Agahchen</h3>
             <p>Co-Founder, Chief Architect</p>
             <p class="bio">
-              David Agahchen is the co-founder of Etcera and the visionary behind its paradigm of Attached Intelligence—AI that 
-              thinks <i>with</i> people, not for or against them. As the company's strategy and technology lead, he guides long-term 
-              vision, product direction, and cross-functional innovation. David is focused on building human-centered systems that 
-              enhance clarity, intentionality, and agency in the age of automation. His work blends systems thinking, cognitive design, 
-              and architecture to align AI with what matters most: people.
+              David Agahchen is the co-founder of Etcera and the visionary
+              behind its paradigm of Attached Intelligence—AI that thinks
+              <i>with</i> people, not for or against them. As the company's
+              strategy and technology lead, he guides long-term vision, product
+              direction, and cross-functional innovation. David is focused on
+              building human-centered systems that enhance clarity,
+              intentionality, and agency in the age of automation. His work
+              blends systems thinking, cognitive design, and architecture to
+              align AI with what matters most: people.
             </p>
             <div class="social-links">
               <a
@@ -518,10 +537,13 @@
             <h3>Anissa Agahchen</h3>
             <p>Co-Founder, Chief Operating Engineer</p>
             <p class="bio">
-              Anissa Agahchen is the co-founder of Etcera and the driving force behind its market strategy, operations, and 
-              problem-solving design. With a background in software and cognitive systems, she focuses on eliminating overwhelm 
-              for modern achievers by creating structured tools that enable clarity and focus. As the company’s marketing and 
-              operations lead, Anissa bridges customer insight with intelligent systems, ensuring that the platform delivers 
+              Anissa Agahchen is the co-founder of Etcera and the driving force
+              behind its market strategy, operations, and problem-solving
+              design. With a background in software and cognitive systems, she
+              focuses on eliminating overwhelm for modern achievers by creating
+              structured tools that enable clarity and focus. As the company's
+              marketing and operations lead, Anissa bridges customer insight
+              with intelligent systems, ensuring that the platform delivers
               practical value while staying true to its human-first mission.
             </p>
             <div class="social-links">
