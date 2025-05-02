@@ -1,123 +1,640 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
     <title>Akimilabs</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=b68e53a1318609266c469e9bef776e65">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
-    <link rel="stylesheet" href="assets/css/styles.min.css?h=b4097d3ccf2f99d90ab520287facbbea">
-</head>
+    <link rel="icon" type="image/png" href="assets/img/favicon-3D.png" />
+    <link
+      rel="stylesheet"
+      href="assets/bootstrap/css/bootstrap.min.css?h=b68e53a1318609266c469e9bef776e65"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css"
+    />
+    <style>
+      :root {
+        --akimilabs-primary: #3b82f6;
+        --akimilabs-text: #e5e7eb;
+        --akimilabs-bg: #111827;
+        --akimilabs-secondary: #1f2937;
+        --akimilabs-accent: #075eeb; /* #4f46e5 */
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--akimilabs-text);
+        line-height: 1.6;
+        background: var(--akimilabs-bg);
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+      .logo {
+        width: 360px;
+        max-width: 90%;
+        margin: 3rem auto;
+        display: block;
+        transition: transform 0.3s ease, filter 0.3s ease;
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+      }
+      .logo:hover {
+        transform: scale(1.02);
+        filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.15));
+      }
+      .hero {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        padding: 4rem 0;
+        text-align: center;
+        position: relative;
+      }
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        color: var(--akimilabs-text);
+        background: linear-gradient(
+          135deg,
+          var(--akimilabs-text) 0%,
+          #9ca3af 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero p {
+        font-size: 1.25rem;
+        color: #9ca3af;
+        max-width: 700px;
+        margin: 0 auto 1.5rem;
+        line-height: 1.8;
+      }
+      .section {
+        padding: 5rem 0;
+        border-top: 1px solid rgba(55, 65, 81, 0.3);
+        text-align: center;
+      }
+      .section-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .section-content p {
+        font-size: 0.95rem;
+        color: var(--akimilabs-text);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+      .section-title {
+        font-size: 2.25rem;
+        font-weight: 700;
+        margin-bottom: 2.5rem;
+        color: var(--akimilabs-text);
+        position: relative;
+        display: inline-block;
+        background: linear-gradient(
+          135deg,
+          var(--akimilabs-text) 0%,
+          #9ca3af 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: var(--akimilabs-primary);
+        border-radius: 2px;
+      }
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+        margin-top: 3rem;
+      }
+      .team-member {
+        text-align: center;
+        background: rgba(31, 41, 55, 0.5);
+        padding: 2.5rem;
+        border-radius: 16px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(55, 65, 81, 0.3);
+        backdrop-filter: blur(10px);
+      }
+      .team-member:hover {
+        transform: translateY(-5px);
+        border-color: var(--akimilabs-primary);
+        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+      }
+      .team-member img {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        margin-bottom: 1.5rem;
+        object-fit: cover;
+        border: 3px solid var(--akimilabs-primary);
+        transition: transform 0.3s ease;
+      }
+      .team-member:hover img {
+        transform: scale(1.05);
+      }
+      .team-member h3 {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+        color: var(--akimilabs-text);
+      }
+      .team-member p {
+        color: #9ca3af;
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+      }
+      .team-member .bio {
+        font-size: 0.95rem;
+        color: #9ca3af;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+      .team-member .social-links {
+        margin-top: 1.5rem;
+      }
+      .team-member .social-links a {
+        color: var(--akimilabs-primary);
+        margin: 0 0.75rem;
+        font-size: 1.3rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .team-member .social-links a:hover {
+        color: var(--akimilabs-accent);
+        transform: translateY(-2px);
+      }
+      .contact {
+        text-align: center;
+        padding: 2rem 0;
+        background: rgba(31, 41, 55, 0.3);
+        border-radius: 16px;
+        margin: 2rem 0;
+        border: 1px solid rgba(55, 65, 81, 0.3);
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .contact p {
+        margin-bottom: 1rem;
+        color: #9ca3af;
+        font-size: 1.1rem;
+      }
+      .contact a {
+        color: var(--akimilabs-primary);
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .contact a:hover {
+        color: var(--akimilabs-accent);
+        text-decoration: none;
+        transform: translateY(-2px);
+      }
+      .btn-primary {
+        background: linear-gradient(
+          135deg,
+          var(--akimilabs-primary) 0%,
+          var(--akimilabs-accent) 100%
+        ) !important;
+        border: none !important;
+        transition: all 0.3s ease;
+        font-family: inherit;
+        text-transform: none !important;
+        padding: 0.75rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+        outline: none !important;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+      }
+      .btn-primary:focus,
+      .btn-primary:focus-visible,
+      .btn-primary:focus-within {
+        border: none !important;
+        outline: none !important;
+        outline-offset: 0 !important;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3) !important;
+      }
+      .btn-primary:active {
+        border: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+        outline-offset: 0 !important;
+      }
+      .collaboration-list {
+        text-align: left;
+        max-width: 600px;
+        margin: 2.5rem auto;
+        background: rgba(31, 41, 55, 0.3);
+        padding: 2rem;
+        border-radius: 12px;
+        border: 1px solid rgba(55, 65, 81, 0.3);
+      }
+      .collaboration-list li {
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease;
+      }
+      .collaboration-list li:hover {
+        transform: translateX(5px);
+      }
+      .collaboration-list i {
+        color: var(--akimilabs-primary);
+        margin-right: 1rem;
+        font-size: 1.2rem;
+        width: 24px;
+        text-align: center;
+      }
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        .container {
+          padding: 0 1.5rem;
+        }
+        .hero {
+          min-height: 40vh;
+          padding: 2rem 0;
+        }
+        .hero p {
+          font-size: 1.1rem;
+          margin-bottom: 1rem;
+        }
+        .logo {
+          margin: 1rem auto;
+        }
+        .section {
+          padding: 3rem 0;
+        }
+      }
+      /* Gradient styles */
+      .gradient-element {
+        background: linear-gradient(to right top, #3270d3, #9089fc);
+        opacity: 0.2; /* Slightly increased from 0.2, but not as high as 0.3 */
+        clip-path: polygon(
+          74.1% 44.1%,
+          100% 61.6%,
+          97.5% 26.9%,
+          85.5% 0.1%,
+          80.7% 2%,
+          72.5% 32.5%,
+          60.2% 62.4%,
+          52.4% 68.1%,
+          47.5% 58.3%,
+          45.2% 34.5%,
+          27.5% 76.7%,
+          0.1% 64.9%,
+          17.9% 100%,
+          27.6% 76.8%,
+          76.1% 97.7%,
+          74.1% 44.1%
+        );
+        animation: gradient-float 10s ease-in-out infinite;
+      }
 
-<body id="page-top">
-    <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
-        <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="assets/img/Akimilabs%20logo.png?h=9e676ee99979f9651f28403b0f7c6497" style="width: 300px;"></a><button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarResponsive" type="button" aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-align-justify"></i></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
-                </ul>
-            </div>
+      @keyframes gradient-float {
+        0% {
+          transform: translate(0) rotate(0) scale(1);
+        }
+        25% {
+          transform: translate(3%, 3%) rotate(10deg) scale(1.1);
+        }
+        50% {
+          transform: translate(-3%, 3%) rotate(-10deg) scale(0.9);
+        }
+        75% {
+          transform: translate(3%, -3%) rotate(10deg) scale(1.1);
+        }
+        100% {
+          transform: translate(0) rotate(0) scale(1);
+        }
+      }
+
+      .gradient-top {
+        position: fixed;
+        inset: 0;
+        top: -40%;
+        z-index: -10;
+        transform: translateZ(0);
+        overflow: hidden;
+        filter: blur(40px);
+      }
+
+      .gradient-top .gradient-element {
+        position: relative;
+        left: calc(50% - 11rem);
+        aspect-ratio: 1155/678;
+        width: 36.125rem;
+        transform: translateX(-50%) rotate(30deg);
+      }
+
+      .gradient-middle {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        z-index: -10;
+        transform: translate(-50%, -50%);
+        filter: blur(40px);
+      }
+
+      .gradient-middle .gradient-element {
+        aspect-ratio: 1155/678;
+        width: 36.125rem;
+      }
+
+      .gradient-bottom {
+        position: fixed;
+        inset: 0;
+        top: calc(100% - 13rem);
+        z-index: -10;
+        transform: translateZ(0);
+        overflow: hidden;
+        filter: blur(40px);
+      }
+
+      .gradient-bottom .gradient-element {
+        position: relative;
+        left: calc(50% + 3rem);
+        aspect-ratio: 1155/678;
+        width: 36.125rem;
+        transform: translateX(-50%);
+      }
+
+      @media (min-width: 640px) {
+        .gradient-top {
+          top: -80%;
+        }
+        .gradient-top .gradient-element {
+          left: calc(50% - 30rem);
+          width: 72.1875rem;
+        }
+        .gradient-bottom {
+          top: calc(100% - 30rem);
+        }
+        .gradient-bottom .gradient-element {
+          left: calc(50% + 36rem);
+          width: 72.1875rem;
+        }
+      }
+
+      .badge-container {
+        display: flex;
+        justify-content: center;
+      }
+
+      .canadian-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.375rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--akimilabs-text);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+      }
+
+      .canadian-badge svg {
+        height: 1rem;
+        width: 1rem;
+        margin-right: 0.375rem;
+        color: #ef4444;
+      }
+
+      .spacer {
+        padding: 1rem 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="gradient-top">
+      <div class="gradient-element"></div>
+    </div>
+    <div class="gradient-middle">
+      <div class="gradient-element"></div>
+    </div>
+    <div class="gradient-bottom">
+      <div class="gradient-element"></div>
+    </div>
+
+    <div class="section"></div>
+    <div class="container">
+      <img
+        src="assets/img/Akimilabs-logo-notext.png"
+        alt="Etcera"
+        class="logo"
+      />
+
+      <section class="hero">
+        <div class="section-content">
+          <h1>Building Etcera</h1>
+          <p>
+            We're the team behind Etcera, the productivity app that thinks with
+            you. Our mission is simple: to empower modern achievers to think,
+            act, and reflect their way to mindful productivity and personal
+            growth.
+          </p>
+          <p>
+            <a
+              href="https://etcera.com"
+              class="btn btn-primary"
+              style="margin-top: 1rem"
+              >Learn more</a
+            >
+          </p>
         </div>
-    </nav>
-    <header class="masthead text-center text-white d-flex" style="background-image:url('assets/img/header.jpg?h=1e0a2a51dfb134a58fe757975cbbf111');">
-        <div class="container my-auto">
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <h1 class="text-uppercase"><strong>Your Business Catalyst Through Technology</strong></h1>
-                    <hr>
-                </div>
-            </div>
-            <div class="col-lg-8 mx-auto">
-                <p class="text-faded mb-5">We can help you build better full stack applications and enterprise solutions</p><a class="btn btn-secondary btn-xl js-scroll-trigger" role="button" href="#services" style="background-color: rgb(55,87,150);">Find Out More</a></div>
+      </section>
+
+      <section class="section">
+        <div class="section-content">
+          <h2 class="section-title">About Our Team</h2>
+          <p>
+            At Akimilabs, we're a dynamic team of innovators and problem-solvers
+            passionate about revolutionizing productivity through AI. Our
+            diverse backgrounds in software architecture, engineering, and
+            product development drive us to create solutions that empower
+            individuals and collaborative teams to achieve more.
+          </p>
+          <p>
+            Founded by David and Anissa Agahchen, our company combines technical
+            excellence with a deep understanding of user needs. We believe in
+            building technology that thinks with you, not for you, creating
+            tools that enhance human potential rather than replace it.
+          </p>
         </div>
-    </header>
-    <section id="about" class="bg-akimilabs-blue" style="background-color: rgb(55,87,150);color: rgb(55,87,150);">
-        <div class="container">
-            <div class="row">
-                <div class="col offset-lg-8 mx-auto text-center">
-                    <h2 class="text-white section-heading">We've got what you need!</h2>
-                    <hr class="light my-4">
-                    <p class="text-faded mb-4">We know the importance of delivering incremental business values early, and how to get it done!</p><a class="btn btn-light btn-xl js-scroll-trigger" role="button" href="#services">Learn more</a></div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Meet Our Founders</h2>
+        <div class="team-grid">
+          <div class="team-member">
+            <img src="assets/img/team/david.png" alt="David Agahchen" />
+            <h3>David Agahchen</h3>
+            <p>Co-Founder, Vision Architect & Development Lead of Etcera</p>
+            <p class="bio">
+              David Agahchen is the co-founder, Vision Architect, and Development Lead of Etcera, a Victoria-based 
+              productivity app pioneering Attached Intelligence—AI that thinks <i>with you</i>, not for you. He leads the 
+              strategic development of the platform and its technical architecture, ensuring that every layer of the 
+              system supports clarity, agency, and long-term alignment. With a background in systems thinking, software 
+              development, and cognitive design, David builds tools that help people stay grounded and intentional in 
+              a fast-moving world.
+            </p>
+            <div class="social-links">
+              <a
+                href="https://bsky.app/profile/davidagahchen.bsky.social"
+                target="_blank"
+                ><i class="fa-brands fa-bluesky"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/david-agahchen-4393b217/"
+                target="_blank"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></a>
             </div>
-        </div>
-    </section>
-    <section id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">At Your Service</h2>
-                    <hr class="my-4">
-                </div>
+          </div>
+          <div class="team-member">
+            <img src="assets/img/team/anissa.png" alt="Anissa Agahchen" />
+            <h3>Anissa Agahchen</h3>
+            <p>Co-Founder, Systems Strategist & DevOps Lead of Etcera</p>
+            <p class="bio">
+              Anissa Agahchen is the co-founder, Systems Strategist, and DevOps Lead of Etcera, where she leads the design of 
+              internal systems, user workflows, and technical operations. She translates complex user needs into intuitive 
+              experiences and ensures the platform remains reliable, scalable, and human-centered. With a background in software 
+              development and operational systems, Anissa builds the infrastructure and processes that help modern achievers 
+              navigate complexity with clarity and focus.
+            </p>
+            <div class="social-links">
+              <a
+                href="https://bsky.app/profile/anissaagahchen.bsky.social"
+                target="_blank"
+                ><i class="fa-brands fa-bluesky"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/anissa-agahchen-94a01020/"
+                target="_blank"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></a>
             </div>
+          </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><i class="fa fa-diamond fa-4x text-primary mb-3 sr-icons" data-aos="zoom-in" data-aos-duration="200" data-aos-once="true" style="color: rgb(55,87,150);"></i>
-                        <h3 class="mb-3">Agile Delivery</h3>
-                        <p class="text-muted mb-0">We practice Disciplined Agile delivery principles to combine best practices and deliver the right solution on time and on budget.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><i class="fa fa-paper-plane fa-4x text-primary mb-3 sr-icons" data-aos="zoom-in" data-aos-duration="200" data-aos-delay="200" data-aos-once="true" style="color: rgb(55,87,150);"></i>
-                        <h3 class="mb-3">Rapid Prototyping</h3>
-                        <p class="text-muted mb-0">We leverage rapid prototyping&nbsp;<br>to explore and refine incremental business values from start to finish!</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><i class="fa fa-newspaper-o fa-4x text-primary mb-3 sr-icons" data-aos="zoom-in" data-aos-duration="200" data-aos-delay="400" data-aos-once="true" style="color: rgb(55,87,150);"></i>
-                        <h3 class="mb-3">Up to Date</h3>
-                        <p class="text-muted mb-0">We&nbsp;keep stakeholders informed and involved by reguarly updating key&nbsp;assumptions, dependencies and design decisions.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><i class="fa fa-heart fa-4x text-primary mb-3 sr-icons" data-aos="fade" data-aos-duration="200" data-aos-delay="600" data-aos-once="true" style="color: rgb(55,87,150);"></i>
-                        <h3 class="mb-3">Made with Love</h3>
-                        <p class="text-muted mb-0">Your success is our business!</p>
-                    </div>
-                </div>
+      </section>
+
+      <section class="section">
+        <div class="section-content">
+          <h2 class="section-title">Let's Collaborate</h2>
+          <p>
+            We're seeking partners to advance our AIM-1 system—a productivity
+            framework for knowledge workers that enhances cognitive clarity,
+            decision quality, and reflective practice. We're particularly
+            interested in:
+          </p>
+          <ul class="collaboration-list">
+            <li>
+              <i class="fa fa-flask"></i>
+              <span
+                >Research partnerships to develop metrics and best practices for
+                measuring mindful productivity and emotional resilience</span
+              >
+            </li>
+            <li>
+              <i class="fa fa-users"></i>
+              <span
+                >Knowledge workers interested in participating in our
+                invitation-only pilot program for testing decision support
+                capabilities</span
+              >
+            </li>
+            <li>
+              <i class="fa fa-brain"></i>
+              <span
+                >Collaborative development of training approaches that support
+                reflective decision-making and sustainable knowledge work</span
+              >
+            </li>
+            <li>
+              <i class="fa fa-chart-line"></i>
+              <span
+                >Partners interested in co-developing frameworks for evaluating
+                the Think → Do → Reflect cycle's impact on well-being and
+                performance</span
+              >
+            </li>
+          </ul>
+          <p>
+            If you're passionate about advancing responsible AI in productivity
+            tools and would like to contribute to this work, we'd love to
+            connect.
+          </p>
+        </div>
+      </section>
+
+      <section class="contact">
+        <div class="section-content">
+          <h2 class="section-title">Get in Touch</h2>
+          <p>For collaboration inquiries:</p>
+          <p>
+            <a href="mailto:inquiry@akimilabs.com">inquiry@akimilabs.com</a>
+          </p>
+
+          <div class="badge-container">
+            <div class="canadian-badge">
+              <svg
+                class="h-4 w-4 mr-1.5 text-red-500"
+                fill="currentColor"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  d="M383.8 351.7c2.5-2.5 105.2-92.4 105.2-92.4l-17.5-7.5c-10-4.9-7.4-11.5-5-17.4 2.4-7.6 20.1-67.3 20.1-67.3s-47.7 10-57.7 12.5c-7.5 2.4-10-2.5-12.5-7.5s-15-32.4-15-32.4-52.6 59.9-55.1 62.3c-10 7.5-20.1 0-17.6-10 0-10 27.6-129.6 27.6-129.6s-30.1 17.4-40.1 22.4c-7.5 5-12.6 5-17.6-5C293.5 72.3 255.9 0 255.9 0s-37.5 72.3-42.5 79.8c-5 10-10 10-17.6 5-10-5-40.1-22.4-40.1-22.4S183.3 182 183.3 192c2.5 10-7.5 17.5-17.6 10-2.5-2.5-55.1-62.3-55.1-62.3S98.1 167 95.6 172s-5 9.9-12.5 7.5C73 177 25.4 167 25.4 167s17.6 59.7 20.1 67.3c2.4 6 5 12.5-5 17.4L23 259.3s102.6 89.9 105.2 92.4c5.1 5 10 7.5 5.1 22.5-5.1 15-10.1 35.1-10.1 35.1s95.2-20.1 105.3-22.6c8.7-.9 18.3 2.5 18.3 12.5S241 512 241 512h30s-5.8-102.7-5.8-112.8 9.5-13.4 18.4-12.5c10 2.5 105.2 22.6 105.2 22.6s-5-20.1-10-35.1 0-17.5 5-22.5z"
+                />
+              </svg>
+              100% Canadian Owned & Operated
             </div>
+          </div>
         </div>
-    </section>
-    <section id="portfolio" class="p-0">
-        <div class="container-fluid p-0">
-            <div class="row no-gutters">
-                <div class="col-sm-6 col-lg-4"><div class="portfolio-box"><img class="img-fluid" src="assets/img/thumbnails/1.jpg?h=56a68e7dda0ccee51a3ee9052291ff82"><div class="portfolio-box-caption" style="background-color: rgba(55,87,150, 0.9);"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Agile Enterprise Integration</span></div><div class="project-name"><span>Project JADE</span></div></div></div></div></div>
-                <div class="col-sm-6 col-lg-4"><div class="portfolio-box"><img class="img-fluid" src="assets/img/thumbnails/2.jpg?h=13bb24b9c927c681b136f2567e30fbca"><div class="portfolio-box-caption" style="background-color: rgba(55,87,150,0.9);"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Cloud-Native DevOps Automation</span></div><div class="project-name"><span>Road Safety Initiatives</span></div></div></div></div></div>
-                <div class="col-sm-6 col-lg-4"><div class="portfolio-box"><img class="img-fluid" src="assets/img/thumbnails/3.jpg?h=fc435652d8c9712aef952a590f88ca1f"><div class="portfolio-box-caption" style="background-color: rgba(55,87,150,0.9);"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Software As A Service</span></div><div class="project-name"><span>Project Verably</span></div></div></div></div></div>
-                <div class="col-sm-6 col-lg-4"><div class="portfolio-box"><img class="img-fluid" src="assets/img/thumbnails/4.jpg?h=dd526fbc875cf237b82b503347a6fb3b"><div class="portfolio-box-caption" style="background-color: rgba(55,87,150,0.9);"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Innovative Mobile Development</span></div><div class="project-name"><span>On-Site Volunteer Coordination</span></div></div></div></div></div>
-                <div class="col-sm-6 col-lg-4"><div class="portfolio-box"><img class="img-fluid" src="assets/img/thumbnails/5.jpg?h=e9a0ccae602ba1211c489fc64bfa72f4"><div class="portfolio-box-caption" style="background-color: rgba(55,87,150,0.9);"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Disciplined Agile Delivery</span></div><div class="project-name"><span>Project Services Card</span></div></div></div></div></div>
-                <div class="col-sm-6 col-lg-4"><div class="portfolio-box"><img class="img-fluid" src="assets/img/thumbnails/6.jpg?h=e69534c0f62e0b0ac301e6832430eaab"><div class="portfolio-box-caption" style="background-color: rgba(55,87,150,0.9);"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><a href="https://mypam.ai" target="_blank" style="text-decoration: none; color: inherit;"><span>Generative AI As A Service</span></a></div><div class="project-name"><a href="https://mypam.ai" target="_blank" style="text-decoration: none; color: inherit;"><span>mypam.ai</span></a></div></div></div></div></div>
-            </div>
-        </div>
-    </section>
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="section-heading">Let's Get In Touch</h2>
-                    <hr class="my-4">
-                    <p class="mb-5">Interested in exploring how we can help you? We'd love to discuss your ideas and see how we can assist. Reach out to us, and let's start a conversation!</p><i class="fa fa-envelope-o fa-3x mb-3 sr-contact" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="300"
-                        data-aos-once="true"></i>
-                    <p><a href="mailto:info@akimilabs.com">info@akimilabs.com</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
+      </section>
+    </div>
+
+    <div class="spacer"></div>
+
     <script src="assets/js/jquery.min.js?h=1dd785e1de9a32e236b624ae268bb803"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js?h=2394c9ffd5558f411ffdc3326e9a8962"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
-    <script src="assets/js/script.min.js?h=ba138a65066bb498534cb00f0d8520f5"></script>
-</body>
-
+  </body>
 </html>
