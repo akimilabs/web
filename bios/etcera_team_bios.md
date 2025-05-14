@@ -5,5 +5,5 @@ David Agahchen is the co-founder, Vision Architect, and Development Lead of Etce
 ---
 
 ## Anissa Agahchen  
-**Co-Founder, Systems Strategist & DevOps Lead of Etcera**  
-Anissa Agahchen is the co-founder, Systems Strategist, and DevOps Lead of Etcera, where she leads the design of internal systems, user workflows, and technical operations. She translates complex user needs into intuitive experiences and ensures the platform remains reliable, scalable, and human-centered. With a background in software development and operational systems, Anissa builds the infrastructure and processes that help modern achievers navigate complexity with clarity and focus.
+**Co-Founder, Systems Strategist & Operations Lead of Etcera**  
+Anissa Agahchen is the co-founder, Systems Strategist, and Operations Lead of Etcera, where she leads the design of internal systems, user workflows, and technical operations. She translates complex user needs into intuitive experiences and ensures the platform remains reliable, scalable, and human-centered. With a background in software development and operational systems, Anissa builds the infrastructure and processes that help modern achievers navigate complexity with clarity and focus.
