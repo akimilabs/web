@@ -72,7 +72,7 @@
         font-size: 3.5rem;
         font-weight: 700;
         margin-bottom: 1.5rem;
-        line-height: 1.2;
+        line-height: 1.3;
         color: var(--akimilabs-text);
         background: linear-gradient(
           135deg,
@@ -444,6 +444,30 @@
         border-top: 1px solid rgba(55, 65, 81, 0.3);
         margin-top: 0.5rem;
       }
+
+      .team-image {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        width: 50%;
+        margin: 0 auto;
+      }
+
+      .team-image::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, transparent 60%, rgba(0, 0, 0, 0.3) 100%);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .team-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
     </style>
   </head>
 
@@ -510,21 +534,14 @@
         <div class="team-grid">
           <div class="team-member">
             <img
-              src="assets/img/team/david-2025-square.png"
+              src="assets/img/team/david-2025-square-md.jpg"
               alt="David Agahchen"
             />
             <h3>David Agahchen</h3>
-            <p>Co-Founder, Vision Architect & Development Lead of Etcera</p>
+            <p>Co-Founder & CEO</p>
             <p class="bio">
-              David Agahchen is the co-founder, Vision Architect, and
-              Development Lead of Etcera, a productivity app pioneering Attached
-              Intelligence—AI that thinks <i>with you</i>, not for you. He leads
-              the strategic development of the platform and its technical
-              architecture, ensuring that every layer of the system supports
-              clarity, agency, and long-term alignment. With a background in
-              systems thinking, software development, and cognitive design,
-              David builds tools that help people stay grounded and intentional
-              in a fast-moving world.
+              <p>With over two decades of experience in systems architecture, AI, and digital innovation, David served as a lead architect, technical lead, and senior engineer within IBM’s Global Business Services division. He holds a Master's in Artificial Intelligence from the University of Waterloo and previously co-founded Verably, a platform serving nonprofit organizations.</p>
+              <p>David leads the strategic vision and development of Etcera, ensuring that every layer of the system is human-centered, intentional, and adaptable—empowering people to move through life with focus and purpose.</p>
             </p>
             <div class="social-links">
               <a
@@ -541,20 +558,18 @@
           </div>
           <div class="team-member">
             <img
-              src="assets/img/team/anissa-2025-square.png"
+              src="assets/img/team/anissa-2025-square-md.jpg"
               alt="Anissa Agahchen"
             />
             <h3>Anissa Agahchen</h3>
-            <p>Co-Founder, Systems Strategist & Operations Lead of Etcera</p>
+            <p>Co-Founder & COO</p>
             <p class="bio">
-              Anissa Agahchen is the co-founder, Systems Strategist, and
-              Operations Lead of Etcera, where she leads the design of internal
-              systems, user workflows, and technical operations. She translates
-              complex user needs into intuitive experiences and ensures the
-              platform remains reliable, scalable, and human-centered. With a
-              background in software development and operational systems, Anissa
-              builds the infrastructure and processes that help modern achievers
-              navigate complexity with clarity and focus.
+              <p>
+                With nearly two decades of experience across software development, DevOps, and program management, Anissa has led initiatives in academic, government, and startup environments. She holds a Master's in Computer Vision from the University of Victoria and previously co-founded Verably, a platform serving nonprofit organizations.
+              </p>
+              <p>
+                Anissa leads systems strategy, operations, and user experience—translating complex needs into reliable, intuitive workflows and ensuring the platform is scalable, resilient, and deeply human-centered.
+              </p>
             </p>
             <div class="social-links">
               <a
@@ -622,11 +637,12 @@
           </p>
 
           <p>
-            <img
-              src="assets/img/team/team-2025.png"
-              width="50%"
-              alt="Team Akimilabs"
-            />
+            <div class="team-image">
+              <img
+                src="assets/img/team/team-2025-md.jpg"
+                alt="Team Akimilabs"
+              />
+            </div>
           </p>
           <div class="contact">
             <a href="mailto:inquiry@akimilabs.com">inquiry@akimilabs.com</a>
